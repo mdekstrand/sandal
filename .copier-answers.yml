@@ -1,0 +1,11 @@
+# Changes here will be overwritten by Copier
+_commit: f9f4225
+_src_path: https://github.com/lenskit/lk-project-template
+owner: Michael D. Ekstrand
+package_name: sandal
+project_descr: Lightweight bootstrapping for project scripts
+project_name: sandal
+project_title: Sandal
+require_lint: true
+start_year: 2024
+typecheck: true
