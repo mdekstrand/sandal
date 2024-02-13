@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "sandal"
 description = "Lightweight bootstrapping for project scripts"
 authors = [
-  {name="Michael Ekstrand", email="mdekstrand@drexel.edu"}
+  { name = "Michael Ekstrand", email = "mdekstrand@drexel.edu" },
 ]
 classifiers = [
   "License :: OSI Approved :: MIT License",
@@ -21,6 +21,10 @@ readme = "README.md"
 license = { file = "LICENSE.md" }
 dynamic = ["version"]
 dependencies = [
+  "tomli~=2.0;python_version<'3.12'",
+  "enlighten~=1.12",
+  "colorlog==6.*",
+  "progress-api@git+https://github.com/lenskit/progress-api.git",
 ]
 
 [project.optional-dependencies]
@@ -32,7 +36,7 @@ dev = [
   "ruff",
   "pyright",
   "copier",
-  "unbeheader",         # p2c: -p
+  "unbeheader",        # p2c: -p
   "ipython",
   "pyproject2conda",
   "sphinx-autobuild",
@@ -82,7 +86,7 @@ section-order = [
   "third-party",
   "testing",
   "first-party",
-  "local-folder"
+  "local-folder",
 ]
 
 [tool.ruff.lint.isort.sections]
