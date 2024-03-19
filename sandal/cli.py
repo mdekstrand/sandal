@@ -1,10 +1,17 @@
+"""
+Setup routines for CLI environments.
+"""
+
 import logging
+import os
 import sys
 from pathlib import Path
 
 import progress_api
 from colorlog import ColoredFormatter
 from enlighten import Manager
+
+from .loghelper import Verbosity, vrb_to_level
 
 term_fmt = ColoredFormatter(
     "[%(blue)s%(asctime)s%(reset)s] %(log_color)s%(levelname)-8s%(reset)s %(cyan)s%(logger)s %(blue)s%(message)s",
@@ -26,24 +33,10 @@ file_fmt = logging.Formatter(
 )
 
 
-def _vrb_to_level(verbose: int | bool | None) -> int:
-    if verbose is None:
-        verbose = 0
-    if verbose is True:
-        verbose = 1
-
-    level = logging.INFO
-    if verbose < 0:
-        level = logging.WARN
-    elif verbose > 0:
-        level = logging.DEBUG
-    return level
-
-
 def setup_logging(
-    verbose: int | bool | None = None,
+    verbose: Verbosity = None,
     log_file: str | Path | None = None,
-    log_file_verbose: int | bool | None = None,
+    log_file_verbose: Verbosity = None,
 ):
     """
     Initialize logging and progress bars for a CLI environment.
@@ -55,7 +48,7 @@ def setup_logging(
     """
     global emgr
 
-    term_level = _vrb_to_level(verbose)
+    term_level = vrb_to_level(verbose)
 
     handler = logging.StreamHandler(stream=sys.stderr)
     handler.setFormatter(term_fmt)
