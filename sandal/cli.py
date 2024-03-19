@@ -46,7 +46,12 @@ def setup_logging(
     log_file_verbose: int | bool | None = None,
 ):
     """
-    Initialize logging for a CLI environment.
+    Initialize logging and progress bars for a CLI environment.
+
+    Args:
+        verbose: whether to include debug output.
+        log_file: a log file to write to.
+        log_file_verbose: override ``verbose`` for the log file.
     """
     global emgr
 
