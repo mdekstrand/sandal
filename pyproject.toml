@@ -24,7 +24,7 @@ dependencies = [
   "tomli~=2.0;python_version<'3.12'",
   "enlighten~=1.12",
   "colorlog==6.*",
-  "progress-api@git+https://github.com/lenskit/progress-api.git",
+  "progress-api>=0.1.0a3",
 ]
 
 [project.optional-dependencies]
