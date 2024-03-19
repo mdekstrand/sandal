@@ -3,7 +3,6 @@ Setup routines for CLI environments.
 """
 
 import logging
-import os
 import sys
 from pathlib import Path
 
@@ -14,7 +13,7 @@ from enlighten import Manager
 from .loghelper import Verbosity, vrb_to_level
 
 term_fmt = ColoredFormatter(
-    "[%(blue)s%(asctime)s%(reset)s] %(log_color)s%(levelname)-8s%(reset)s %(cyan)s%(logger)s %(blue)s%(message)s",
+    "[%(blue)s%(asctime)s%(reset)s] %(log_color)s%(levelname)-8s%(reset)s %(cyan)s%(logger)s %(blue)s%(message)s",  # noqa: E501
     datefmt="%H:%M:%S",
     reset=True,
     log_colors={
@@ -57,7 +56,7 @@ def setup_logging(
     root.addHandler(handler)
     if log_file:
         if log_file_verbose is not None:
-            file_level = _vrb_to_level(log_file_verbose)
+            file_level = vrb_to_level(log_file_verbose)
         else:
             file_level = term_level
         root.setLevel(min(term_level, file_level))
