@@ -32,6 +32,7 @@ intersphinx_mapping = {
     "python": ("https://docs.python.org/3/", None),
     "numpy": ("https://docs.scipy.org/doc/numpy/", None),
     "sklearn": ("https://scikit-learn.org/stable/", None),
+    "progress_api": ("https://progress-api.readthedocs.io/en/latest/", None),
 }
 
 autodoc_default_options = {

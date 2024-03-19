@@ -14,7 +14,13 @@ nb_fmt = logging.Formatter(
 )
 
 
-def setup_logger(verbose: Verbosity):
+def setup_logging(verbose: Verbosity):
+    """
+    Set up logging for a notebook environment.
+
+    Args:
+        verbose: the verbosity level.
+    """
     global _log_initialized
     level = vrb_to_level(verbose)
     root = logging.getLogger()
