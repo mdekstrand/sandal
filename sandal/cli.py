@@ -28,9 +28,7 @@ term_fmt = ColoredFormatter(
     style="%",
 )
 
-file_fmt = logging.Formatter(
-    "%(asctime)s %(levelname)s - %(name)s - %(message)s", datefmt="%Y-%m-%dT%H:%M:%S"
-)
+file_fmt = logging.Formatter("%(asctime)s %(levelname)s - %(name)s - %(message)s")
 
 
 def setup_logging(
