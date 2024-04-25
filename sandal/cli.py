@@ -9,7 +9,6 @@ from pathlib import Path
 import progress_api
 from colorlog import ColoredFormatter
 from enlighten import Manager
-from logfmter import Logfmter
 from progress_api.backends.enlighten import EnlightenProgressBackend
 
 from .loghelper import Verbosity, vrb_to_level
@@ -27,6 +26,10 @@ term_fmt = ColoredFormatter(
     },
     secondary_log_colors={},
     style="%",
+)
+
+file_fmt = logging.Formatter(
+    "%(asctime)s %(levelname)s - %(name)s - %(message)s", datefmt="%Y-%m-%dT%H:%M:%S.uuu"
 )
 
 
@@ -60,7 +63,7 @@ def setup_logging(
         root.setLevel(min(term_level, file_level))
         fh = logging.FileHandler(log_file, mode="w")
         fh.setLevel(file_level)
-        fh.setFormatter(Logfmter())
+        fh.setFormatter(file_fmt)
         root.addHandler(fh)
     else:
         root.setLevel(term_level)
