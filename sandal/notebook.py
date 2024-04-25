@@ -10,7 +10,7 @@ from .loghelper import Verbosity, vrb_to_level
 _log_initialized = False
 
 nb_fmt = logging.Formatter(
-    "[%(asctime)s] %(levelname)-8s %(logger)s %(message)s",
+    "[%(asctime)s] %(levelname)-8s %(name)s %(message)s",
 )
 
 
