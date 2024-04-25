@@ -1,4 +1,6 @@
+import json
 import logging
+from logging import Formatter, LogRecord
 from typing import TypeAlias
 
 Verbosity: TypeAlias = int | bool | None
@@ -16,3 +18,16 @@ def vrb_to_level(verbose: Verbosity) -> int:
     elif verbose > 0:
         level = logging.DEBUG
     return level
+
+
+class BunyanFormatter(Formatter):
+    def format(self, record: LogRecord) -> str:
+        obj = {
+            "v": 0,
+            "time": self.formatTime(record),
+            "level": record.levelno + 10,
+            "name": record.name,
+            "pid": record.process,
+            "msg": record.message,
+        }
+        return json.dumps(obj)

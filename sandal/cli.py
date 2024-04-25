@@ -11,7 +11,7 @@ from colorlog import ColoredFormatter
 from enlighten import Manager
 from progress_api.backends.enlighten import EnlightenProgressBackend
 
-from .loghelper import Verbosity, vrb_to_level
+from .loghelper import BunyanFormatter, Verbosity, vrb_to_level
 
 term_fmt = ColoredFormatter(
     "[%(blue)s%(asctime)s%(reset)s] %(log_color)s%(levelname)-8s%(reset)s %(cyan)s%(name)s %(blue)s%(message)s",  # noqa: E501
@@ -27,8 +27,6 @@ term_fmt = ColoredFormatter(
     secondary_log_colors={},
     style="%",
 )
-
-file_fmt = logging.Formatter("%(asctime)s %(levelname)s - %(name)s - %(message)s")
 
 
 def setup_logging(
@@ -61,7 +59,7 @@ def setup_logging(
         root.setLevel(min(term_level, file_level))
         fh = logging.FileHandler(log_file, mode="w")
         fh.setLevel(file_level)
-        fh.setFormatter(file_fmt)
+        fh.setFormatter(BunyanFormatter())
         root.addHandler(fh)
     else:
         root.setLevel(term_level)
