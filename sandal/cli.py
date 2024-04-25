@@ -9,6 +9,7 @@ from pathlib import Path
 import progress_api
 from colorlog import ColoredFormatter
 from enlighten import Manager
+from progress_api.backends.enlighten import EnlightenProgressBackend
 
 from .loghelper import Verbosity, vrb_to_level
 
@@ -68,4 +69,4 @@ def setup_logging(
         root.setLevel(term_level)
 
     emgr = Manager(stream=sys.stderr)
-    progress_api.set_backend("enlighten", emgr)
+    progress_api.set_backend(EnlightenProgressBackend, emgr)
