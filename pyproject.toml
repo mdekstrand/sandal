@@ -25,6 +25,7 @@ dependencies = [
   "enlighten~=1.12",
   "colorlog==6.*",
   "progress-api>=0.1.0a3",
+  "logfmter>=0.0.7",
 ]
 
 [project.optional-dependencies]
