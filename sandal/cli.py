@@ -29,7 +29,7 @@ term_fmt = ColoredFormatter(
 )
 
 file_fmt = logging.Formatter(
-    "%(asctime)s %(levelname)s - %(name)s - %(message)s", datefmt="%Y-%m-%dT%H:%M:%S.uuu"
+    "%(asctime)s %(levelname)s - %(name)s - %(message)s", datefmt="%Y-%m-%dT%H:%M:%S"
 )
 
 
