@@ -14,7 +14,7 @@ from progress_api.backends.enlighten import EnlightenProgressBackend
 from .loghelper import BunyanFormatter, Verbosity, vrb_to_level
 
 term_fmt = ColoredFormatter(
-    "[%(blue)s%(asctime)s%(reset)s] %(log_color)s%(levelname)-8s%(reset)s %(cyan)s%(name)s %(blue)s%(message)s",  # noqa: E501
+    "[%(blue)s%(asctime)s%(reset)s] %(log_color)s%(levelname)-8s%(reset)s %(cyan)s%(name)s %(reset)s%(message)s",  # noqa: E501
     datefmt="%H:%M:%S",
     reset=True,
     log_colors={
