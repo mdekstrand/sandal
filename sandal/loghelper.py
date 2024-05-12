@@ -22,6 +22,9 @@ def vrb_to_level(verbose: Verbosity) -> int:
 
 class BunyanFormatter(Formatter):
     def format(self, record: LogRecord) -> str:
+        if not hasattr(record, "message"):
+            record.message = record.getMessage()
+
         obj = {
             "v": 0,
             "time": self.formatTime(record),
