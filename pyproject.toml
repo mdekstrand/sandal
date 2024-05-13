@@ -24,7 +24,7 @@ dependencies = [
   "tomli~=2.0;python_version<'3.12'",
   "enlighten~=1.12",
   "colorlog==6.*",
-  "progress-api>=0.1.0a6",
+  "progress-api>=0.1.0a9",
 ]
 
 [project.optional-dependencies]
