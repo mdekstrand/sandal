@@ -65,4 +65,13 @@ def setup_logging(
         root.setLevel(term_level)
 
     emgr = Manager(stream=sys.stderr)
-    progress_api.set_backend(EnlightenProgressBackend, emgr)
+    progress_api.set_backend(
+        EnlightenProgressBackend,
+        emgr,
+        state_colors={
+            "finished": "green",
+            "failed": "red",
+            "in-progress": "yellow",
+            "dispatched": "grey",
+        },
+    )
