@@ -7,7 +7,7 @@ import os
 import sys
 from pathlib import Path
 
-__all__ = ["project_root", "setup_project_dir"]
+__all__ = ["here", "project_root", "setup_project_dir"]
 
 _initialized: bool = False
 _root_dir: Path
@@ -34,3 +34,13 @@ def project_root() -> Path:
     "Get the project root directory."
     setup_project_dir()
     return _root_dir
+
+
+def here(path: str) -> Path:
+    """
+    Resolve a project-relative path to the current working direcetory.
+    """
+    setup_project_dir()
+    apath = _root_dir / path
+    rpath = apath.relative_to(os.getcwd())
+    return rpath
