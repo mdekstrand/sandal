@@ -42,5 +42,4 @@ def here(path: str) -> Path:
     """
     setup_project_dir()
     apath = _root_dir / path
-    rpath = apath.relative_to(os.getcwd())
-    return rpath
+    return apath
